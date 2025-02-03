@@ -1,25 +1,25 @@
 class PrintEditionItem {
-    constructor(name, relaseData, pagesCount, state=100, type=null) {
+    constructor(name, releaseDate, pagesCount, state=100, type=null) {
         this.name = name;
-        this.relaseData = relaseData;
+        this.releaseDate = releaseDate;
         this.pagesCount = pagesCount;
         this.state = state;
         this.type = type;
     }
     fix() {
-       return this.state += this.state * 1.5;
+        this.state *= 1.5;
     }
-    set setter(newCondition) {
+    set state(newCondition) {
         if(newCondition < 0) {
-            this.state = 0;
+            this._state = 0;
         } else if(newCondition > 100) {
-            this.state = 100;
+            this._state = 100;
         } else {
-            this.state = newCondition;
+            this._state = newCondition;
         }
     }
-    get setter() {
-        return this._setter 
+    get state() {
+        return this._state 
     }
 }
 
@@ -75,6 +75,6 @@ class Library extends Book{
         }
     }
     findBookBy(type, value) {
-        
+        type.v
     }
 }
