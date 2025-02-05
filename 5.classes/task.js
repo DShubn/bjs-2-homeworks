@@ -31,7 +31,7 @@ class Magazine extends PrintEditionItem {
 }
 
 class Book extends PrintEditionItem {
-    constructor(name, releaseDate, pagesCount, author) {
+    constructor(author, name, releaseDate, pagesCount) {
         super(name, releaseDate, pagesCount)
         this.author = author
         this.type = "book"
@@ -39,22 +39,22 @@ class Book extends PrintEditionItem {
 }
 
 class NovelBook extends Book {
-  constructor(name, releaseDate, pagesCount, author) {
-    super(name, releaseDate, pagesCount, author)
+  constructor(author, name, releaseDate, pagesCount, ) {
+    super(author, name, releaseDate, pagesCount)
     this.type = "novel"
   }
 }
 
 class FantasticBook extends Book {
-  constructor(name, releaseDate, pagesCount, author) {
-    super(name, releaseDate, pagesCount, author)
+  constructor(author, name, releaseDate, pagesCount) {
+    super(author, name, releaseDate, pagesCount)
     this.type = "fantastic"
   } 
 }
 
 class DetectiveBook extends Book {
-  constructor(name, releaseDate, pagesCount, author) {
-    super(name, releaseDate, pagesCount, author)
+  constructor(author, name, releaseDate, pagesCount) {
+    super(author, name, releaseDate, pagesCount)
     this.type = "detective"
   }
 }
@@ -63,18 +63,35 @@ class DetectiveBook extends Book {
 
 // №2
 
-class Library extends Book{
+class Library {
     constructor(name) {
         this.name = name
         this.books = []
     }
+
     addBook(book) {
-        this.book = book;
-        if(this.state > 10) {
+        if(book.state > 10) {
             this.books.push(book)
         }
     }
+
     findBookBy(type, value) {
-        type.v
+        for (let book of this.books) {
+            if(book[type] === value){
+                return book
+            }
+        }
+        return null
+    }
+
+    giveBookByName(bookName) {
+        for (let i = 0; i < this.books.length; i++) {
+            if (this.books[i].name === bookName) {
+                let book = this.books[i]
+                this.books.splice(i, 1)
+                return book
+            }   
+        }
+        return null
     }
 }
