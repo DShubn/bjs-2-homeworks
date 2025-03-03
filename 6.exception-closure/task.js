@@ -41,8 +41,8 @@ class Triangle {
 
 function getTriangle(a, b, c) {
     try {
-    const triangle1 = new Triangle(a, b, c)
-    return triangle1
+        const triangle1 = new Triangle(a, b, c)
+        return triangle1
     } catch (error) {
         return {
             get area() {
